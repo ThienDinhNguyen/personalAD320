@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://http://localhost:5000/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
@@ -16,8 +17,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-
-
   },
   "eslintConfig": {
     "extends": [
@@ -26,7 +25,7 @@
     ]
   },
   "browserslist": {
-    "production": [ 
+    "production": [
       ">0.2%",
       "not dead",
       "not op_mini all"
@@ -37,6 +36,4 @@
       "last 1 safari version"
     ]
   }
-  
- 
 }

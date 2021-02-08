@@ -2,27 +2,33 @@ import React, { Component } from "react";
 import "./customers.css";
 
 class Customers extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       customers: [],
     };
   }
 
   componentDidMount() {
-    fetch("/api/Customers")
-      .then((res) => res.text())
-      .then((Customers) => {
-        return this.setState({ Customers }, () =>
-          console.log("Customers fetched..", Customers)
-        );
+    fetch("http://localhost:5000/api/customers")
+      .then((res) => res.json())
+      .then((customers) => {
+        this.setState({ customers });
       });
   }
 
   render() {
+    console.log(this.state.customers);
     return (
       <div>
         <h2>Customers</h2>
+        <ul>
+          {this.state.customers.map((customer) => (
+            <li key={customer.id}>
+              {customer.firstName} {customer.lastName}
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

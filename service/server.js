@@ -1,5 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
+
+// ignore cors rule
+app.use(cors({ origin: "*", credentials: true }));
 
 app.get("/api/customers", (req, res) => {
   const customers = [
@@ -7,6 +11,8 @@ app.get("/api/customers", (req, res) => {
     { id: 2, firstName: "John", lastName: "Smith" },
     { id: 3, firstName: "Amy", lastName: "Martin" },
   ];
+
+  res.status(200).send();
 
   res.json(customers);
 });
